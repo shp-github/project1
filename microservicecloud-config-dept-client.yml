@@ -74,3 +74,4 @@ info:
   company.name: www.shp.com
   build.artifactId: $project.artifactId$
   build.version: $project.version$    #以$开头或者结尾的是动态的变量。
+
