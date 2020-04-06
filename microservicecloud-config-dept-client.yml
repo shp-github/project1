@@ -2,7 +2,6 @@ spring:
   profiles:
     active:
     - dev
-
 ---
 server:
   port: 8001
@@ -10,15 +9,20 @@ spring:
   profiles: dev
   application:
     name: microservicecloud-config-dept-client      #eureka对外暴露的微服务名字  ，会自动转换成大写。
-    datasource:
-      driver-class-name: com.mysql.jdbc.Driver
-      username: root
-      password: root
-      url: jdbc:mysql://localhost:3306/clouddb1?serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
+     datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/clouddb1?serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
 
 mybatis:
   type-aliases-package: com.shp.dev.eureka.model
   mapper-locations: classpath:mapper/*.xml
+logging:
+  level:
+    com:
+      shp:
+        dev: debug
 
 eureka:
   client:
@@ -26,7 +30,7 @@ eureka:
       defaultZone: http://eureka7001.com:7001/eureka               #注册集群环境
       #defaultZone: http://localhost:7001/eureka
   instance:
-    instance-id: microservicecloud-dept8001          #修改在注册中心显示的名字
+    instance-id: microservicecloud-config-dept8001          #修改在注册中心显示的名字
     prefer-ip-address: true   # 访问是现实ip地址
 
 info:
@@ -51,14 +55,18 @@ spring:
 mybatis:
   type-aliases-package: com.shp.dev.eureka.model
   mapper-locations: classpath:mapper/*.xml
-
+logging:
+  level:
+    com:
+      shp:
+        dev: debug
 eureka:
   client:
     service-url:  #客户端注册到eureka服务列表内
       defaultZone: http://eureka7001.com:7001/eureka         
       #defaultZone: http://localhost:7001/eureka
   instance:
-    instance-id: microservicecloud-dept8001          #修改在注册中心显示的名字
+   instance-id: microservicecloud-config-dept8001          #修改在注册中心显示的名字
     prefer-ip-address: true   # 访问是现实ip地址
 
 info:
